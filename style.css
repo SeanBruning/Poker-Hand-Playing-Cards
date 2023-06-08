@@ -1,0 +1,78 @@
+.container {
+    width: 500px;
+    height: 300px;
+    margin: 0 auto;
+    margin-top: 200px;
+}
+
+.hand {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    transform-origin: bottom center;
+}
+
+.card {
+    width: 100px;
+    height: 200px;
+    position: absolute;
+    backface-visibility: none;
+    transition: transform 0.3s;
+}
+
+.hand:hover .card:not(:hover) {
+    transform: translateY(10px);
+}
+
+.card:nth-child(1) {
+    transform: rotate(-45deg) translateY(-50%);
+    left: 50%;
+    margin-left: -50px;
+}
+
+.card:nth-child(2) {
+    transform: rotate(-25deg) translateY(-50%);
+    left: 50%;
+    margin-left: -50px;
+}
+
+.card:nth-child(3) {
+    transform: translateY(-50%);
+    left: 50%;
+    margin-left: -50px;
+}
+
+.card:nth-child(4) {
+    transform: rotate(25deg) translateY(-50%);
+    left: 50%;
+    margin-left: -50px;
+}
+
+.card:nth-child(5) {
+    transform: rotate(45deg) translateY(-50%);
+    left: 50%;
+    margin-left: -50px;
+}
+
+.card::before {
+    content: attr(data-symbol);
+    font-size: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.card[data-suit="queen of diamonds"]::before,
+.card[data-suit="ace of spades"]::before {
+    color: red;
+}
+
+.card[data-suit="ace of diamonds"]::before,
+.card[data-suit="king of hearts"]::before,
+.card[data-suit="jack of spades"]::before {
+    color: black;
+}
+
